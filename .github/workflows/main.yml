@@ -1,4 +1,4 @@
-name: CI
+name: Build
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  Docker:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,26 +16,11 @@ jobs:
         with:
           node-version: 14
       
-      - name: setup git config
-        run: |
-          git config user.name "KhanhHoang1231997"
-          git config user.email "khanhhoang1231997@gmail.com"
-      
       - name: Dependecies
         run: npm ci
       
       - name: Build
         run: npm run build
-        
-      - name: Save version
-        id: version
-        run: echo ::set-output name=tag::$(echo $(node -p -e "require('./package.json').version"))
-        
-      - name: Increase version
-        run: npm version patch
-        
-      - name: Push new version
-        run: git push
       
       - name: Login to DockerHub Registry
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
