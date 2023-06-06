@@ -6,7 +6,7 @@ import Test from'./Test';
 import { useState } from "react";
 const App = () => {
   const [text, setText] = useState("a");
-  const [isShow, setShow] = useState(true);
+  const [isShow, setShow] = useState(true);s
   return (
     <div className="App">
       <header className="App-header">
