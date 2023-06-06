@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Clock from'./Clock';
-import { useState } from "react";
+import { useState } from "react";s
 const App = () => {
   const [text, setText] = useState("a");
   const [isShow, setShow] = useState(true);
