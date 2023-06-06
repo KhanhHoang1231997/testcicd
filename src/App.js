@@ -1,12 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import Clock from'./Clock';
-import SnapShot from'./SnapShot';
-import Test from'./Test';
 import { useState } from "react";
 const App = () => {
   const [text, setText] = useState("a");
-  const [isShow, setShow] = useState(true);s
+  const [isShow, setShow] = useState(true);
   return (
     <div className="App">
       <header className="App-header">
