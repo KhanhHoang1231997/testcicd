@@ -1,7 +1,6 @@
 import React , { useState, useEffect }from "react";
 const Test = (props) => {
   const [count, setCount] = useState(0);
-  const [count1, setCount1] = useState(0);
   useEffect(() => {
     console.log("useEffect count");
   }, [props.a]);
