@@ -2,18 +2,22 @@ import React , { useState, useEffect }from "react";
 const Test = (props) => {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    console.log("useEffect count");
-  }, [props.a]);
+    console.log("useEffect text: ");
+  }, [props.text]);
 
   useEffect(() => {
-    console.log("count1");
-  }, [count1]);
+    console.log("count");
+    return () => {
+      console.log("disconnect");
+    };
+  }, [count]);
 
   useEffect(() => {
-    console.log("counter mounted or updated");
+    console.log("useEffect mounted or updated");
   });
 
   useEffect(() => {
+    console.log("useEffect did mounted");
     return () => {
       console.log("counter unmounted");
     };
